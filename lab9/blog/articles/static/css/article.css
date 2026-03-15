@@ -1,0 +1,125 @@
+body {
+	background: #1abc9c;
+	font-family: Tahoma, Arial, sans-serif;
+	color: #ffffff;
+}
+.logo {
+	display: block;
+	width: 318px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.archive {
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.article {
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #658B6f;
+	padding: 25px;
+}
+.article .header p a {
+	color: #ffffff;
+}
+.post-title a {
+	color: #ffffff;
+}
+.article-author {
+	width: 50%;
+	float: left;
+}
+.article-created-date {
+	text-align: right;
+}
+a {
+    color: #ffffff;
+}
+
+.archive {
+    position: relative;
+    z-index: 0;
+}
+
+.one-post-shadow {
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+background: black;
+opacity: 0;
+z-index: -1; /* это свойство «отодвигает» элемент на задний план */
+}
+
+.header-text-area {
+    float: left;
+    width: 400px; /* ширину можно менять по макету */
+}
+.header {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.icons-for-parallax {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    height: 530px;
+    position: relative;
+}
+
+.icons-for-parallax img {
+    position: absolute;
+    top: 0;
+}
+
+.icon-for-parallax-first {
+    margin-top: 200px;
+    z-index: 3; /* эта картинка на переднем плане, у неё больший z-index */
+}
+
+.icon-for-parallax-second {
+    width: 175px; /* уменьшить ширину для картинки, чтобы визуально */
+    /* находилась дальше для пользователя */
+    margin-top: 100px; /* эта картинка слегка смещена вправо и вниз */
+    margin-left: 80px; /* за счет левой и верхней границ */
+    z-index: 2;
+}
+
+.icon-for-parallax-third {
+    width: 150px;
+    margin-left: 160px;
+    z-index: 1; /* эта картинка на заднем плане, у неё меньший z-index */
+}
+.header-text-area {
+    text-align: center;          /* по центру по горизонтали */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* центр страницы */
+}
+
+.header-text-area p,
+.header-text-area a {
+    font-weight: bold;   /* жирный */
+    text-transform: uppercase; /* все заглавные */
+    display: block;      /* каждый элемент с новой строки */
+    font-size: 28px;     /* можно изменить размер */
+}
+
+.logo-parallax {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    text-align: center;
+}
+
+#logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+}
