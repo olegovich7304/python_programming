@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/article.css' %}">
+    <title>{{post.title}}</title>
+</head>
+<body>
+    <div class="article">
+        <div class="header">
+            <p>
+                <a class="link" href="http://127.0.0.1:8000/archive/">Все статьи</a>
+                <a class="link" href="http://127.0.0.1:8000/article/new/">написать статью</a>
+                <a class="link" href="http://127.0.0.1:8000/registration/">регистрация</a>
+                <a class="link" href="http://127.0.0.1:8000/auth/">авторизация</a>
+            </p>
+        </div>
+                <div class="one-post">
+                    <h2 class="post-title">{{post.title}}</h2>
+                    <div class="article-info">
+                    <div class="article-author">{{post.author.username}}</div>
+                    <div class="article-created-date">{{post.created_date}}</div>
+                </div>
+            <p class="article-text">{{post.get_excerpt}}</p>
+        </div>
+    </div>
+</body>
