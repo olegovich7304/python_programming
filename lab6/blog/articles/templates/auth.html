@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+		<title>Django Public Blog - АВТОРИЗАЦИЯ ПОЛЬЗОВАТЕЛЯ</title>
+	</head>
+	<body>
+		<div class="content">
+			<a class="link" href="http://127.0.0.1:8000/article/new/">написать статью</a>
+			<a class="link" href="http://127.0.0.1:8000/registration/">регистрация</a>
+			<a class="link" href="http://127.0.0.1:8000/auth/">авторизация</a>
+			<h1>АВТОРИЗАЦИЯ</h1>
+				{% if form.errors %}
+            		<p style="color:red">
+            			{{ form.errors }}
+            		</p>
+        		{% endif %}
+			<form method="POST">
+				{% csrf_token %}
+				<input type="text" name="username" placeholder="Имя пользователя"
+				value="{{ form.username|default:'' }}">
+				<br>
+				<input type="password" name="password" placeholder="Пароль">
+				<br>
+				<input type="submit" value="Войти"><br>
+			</form>
+			{{ form.errors }}
+		</div>
+	</body>
+</html>

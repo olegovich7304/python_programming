@@ -1,0 +1,39 @@
+body {
+	background: #1abc9c;
+	font-family: Tahoma, Arial, sans-serif;
+	color: #ffffff;
+}
+.header img {
+	display: block;
+	width: 318px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.archive {
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.article {
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #658B6f;
+	padding: 25px;
+}
+.article .header p a {
+	color: #ffffff;
+}
+.post-title a {
+	color: #ffffff;
+}
+.article-author {
+	width: 50%;
+	float: left;
+}
+.article-created-date {
+	text-align: right;
+}
+a {
+    color: #ffffff;
+}
