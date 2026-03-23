@@ -123,3 +123,8 @@ z-index: -1; /* это свойство «отодвигает» элемент 
     transform: translate(-50%, -50%);
     width: 300px;
 }
+.one-post.folded .article-author,
+.one-post.folded .article-created-date,
+.one-post.folded .article-text {
+    display: none;
+}

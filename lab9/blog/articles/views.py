@@ -5,39 +5,38 @@ from .models import Article
 from django.contrib.auth import authenticate, login
 
 def create_post(request):
-    if request.user.is_authenticated:
 
-        if request.method == "POST":
-            # обработать данные формы
-            form = {
-                "text": request.POST.get("text"),
-                "title": request.POST.get("title")
-            }
-
-            if form["text"] and form["title"]:
-                # ПРОВЕРКА УНИКАЛЬНОСТИ
-                if Article.objects.filter(title=form["title"]).exists():
-                    form["errors"] = "Статья с таким названием уже существует"
-                    return render(request, "create_post.html", {"form": form})
-                    article = Article.objects.create(
-                        text=form["text"],
-                        title=form["title"],
-                        author=request.user
-                    )
-
-                    return redirect("get_article", article_id=article.id)
-
-                else:
-                    # если введенные данные некорректны
-                    form["errors"] = "Не все поля заполнены"
-                    return render(request, "create_post.html", {"form": form})
-
-        else:
-            # если метод GET
-            return render(request, "create_post.html", {})
-
-    else:
+    if not request.user.is_authenticated:
         raise Http404()
+
+    if request.method == "POST":
+
+        form = {
+            "title": request.POST.get("title"),
+            "text": request.POST.get("text")
+        }
+
+        # проверка заполнения
+        if not form["title"] or not form["text"]:
+            form["errors"] = "Не все поля заполнены"
+            return render(request, "create_post.html", {"form": form})
+
+        # проверка уникальности
+        if Article.objects.filter(title=form["title"]).exists():
+            form["errors"] = "Статья с таким названием уже существует"
+            return render(request, "create_post.html", {"form": form})
+
+        # создаем статью
+        article = Article.objects.create(
+            title=form["title"],
+            text=form["text"],
+            author=request.user
+        )
+
+        return redirect("get_article", article_id=article.id)
+
+    return render(request, "create_post.html", {})
+
 
 def archive(request):
     return render(request, 'archive.html', {
